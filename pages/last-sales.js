@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 import { serialize } from "swr/_internal";
-
-const fetcher = (url) => fetch(url).then((r) => r.json());
-
+const fetcher = (...args) => fetch(...args).then(res => res.json())
 function LastSales(props) {
   const [sales, setSales] = useState(props.sales);
   const { data, error, isLoading } = useSWR(
